@@ -135,8 +135,6 @@ p, li {
   }
 }
 
-
-
 .hero {
   min-height: 100vh;
   display: flex;
@@ -653,18 +651,40 @@ section {
   }
 }
 
+/* HOJA BASE */
+.leaf{
+  position:absolute;
+  background-size:contain;
+  background-repeat:no-repeat;
+  opacity:.85;
+  animation-name:fall;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+}
 
+/* TIPO 1 — hoja clásica */
+.leaf.type1{
+  width:22px;
+  height:22px;
+  background-image:url("img/leaf1.png");
+  animation-duration:12s;
+}
 
+/* TIPO 2 — hoja más grande y lenta */
+.leaf.type2{
+  width:32px;
+  height:32px;
+  background-image:url("img/leaf2.png");
+  animation-duration:18s;
+  opacity:.65;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* ANIMACIÓN */
+@keyframes fall{
+  0%{
+    transform:translateX(-60px) translateY(-60px) rotate(0deg);
+  }
+  100%{
+    transform:translateX(120vw) translateY(110vh) rotate(360deg);
+  }
+}

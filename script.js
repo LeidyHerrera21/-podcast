@@ -1,74 +1,51 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* =========================
+   SMOOTH SCROLL
+========================= */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
 
-  /* =======================
-     MENÚ HAMBURGUESA
-  ======================= */
-  const toggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('.nav-menu');
+/* =========================
+   MENÚ HAMBURGUESA
+========================= */
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.nav-menu');
 
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('active');
-      menu.classList.toggle('active');
-    });
-  }
+if (toggle && menu) {
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+}
 
-  /* =======================
-     SMOOTH SCROLL (SOLO ANCLAS)
-  ======================= */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
-        menu?.classList.remove('active');
-        toggle?.classList.remove('active');
+/* =========================
+   INTERSECTION OBSERVER
+========================= */
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
     });
-  });
+  },
+  { threshold: 0.3 }
+);
 
-  /* =======================
-     ANIMACIONES AL SCROLL
-  ======================= */
-  const revealObserver = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  document.querySelectorAll('.member, .footer-title').forEach(el => {
-    revealObserver.observe(el);
-  });
-
-
-  /* =======================
-     HOJAS DE OTOÑO
-  ======================= */
-  const leavesContainer = document.querySelector(".leaves-container");
-  if (leavesContainer) {
-    function createLeaf() {
-      const leaf = document.createElement("div");
-      leaf.classList.add("leaf");
-
-      leaf.classList.add(Math.random() > 0.5 ? "type1" : "type2");
-      leaf.style.left = Math.random() * 100 + "vw";
-      leaf.style.animationDuration = 12 + Math.random() * 10 + "s";
-
-      leavesContainer.appendChild(leaf);
-      setTimeout(() => leaf.remove(), 22000);
-    }
-
-    setInterval(createLeaf, 600);
-  }
-
+document.querySelectorAll('.member, .footer-title').forEach(el => {
+  observer.observe(el);
 });
+
+/* =========================
+   AUDIO PLAYER
+========================= */
 const audio = document.getElementById("audio");
 const playBtn = document.getElementById("playBtn");
 const nextBtn = document.getElementById("nextBtn");
@@ -107,39 +84,52 @@ function pauseAudio() {
   playBtn.textContent = "▶";
 }
 
-playBtn.addEventListener("click", () => {
+playBtn?.addEventListener("click", () => {
   isPlaying ? pauseAudio() : playAudio();
 });
 
-nextBtn.addEventListener("click", () => {
+nextBtn?.addEventListener("click", () => {
   index = (index + 1) % playlist.length;
   loadTrack(index);
   playAudio();
 });
 
-prevBtn.addEventListener("click", () => {
+prevBtn?.addEventListener("click", () => {
   index = (index - 1 + playlist.length) % playlist.length;
   loadTrack(index);
   playAudio();
 });
 
-listenBtn.addEventListener("click", (e) => {
+listenBtn?.addEventListener("click", e => {
   e.preventDefault();
   loadTrack(index);
   playAudio();
 });
 
-audio.addEventListener("ended", () => {
+audio?.addEventListener("ended", () => {
   index = (index + 1) % playlist.length;
   loadTrack(index);
   playAudio();
 });
 
+/* =========================
+   HOJAS DE OTOÑO
+========================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const leavesContainer = document.querySelector(".leaves-container");
+  if (!leavesContainer) return;
 
+  function createLeaf() {
+    const leaf = document.createElement("div");
+    leaf.classList.add("leaf");
 
-const toggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.nav-menu');
+    leaf.classList.add(Math.random() > 0.5 ? "type1" : "type2");
+    leaf.style.left = Math.random() * 100 + "vw";
 
-toggle.addEventListener('click', () => {
-  menu.classList.toggle('active');
+    leavesContainer.appendChild(leaf);
+
+    setTimeout(() => leaf.remove(), 20000);
+  }
+
+  setInterval(createLeaf, 600);
 });
