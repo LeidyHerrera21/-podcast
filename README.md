@@ -22,7 +22,7 @@ Somos 6 voces que dan vida a este proyecto:
 * Aaron Ocaña
 * Treicy Portilla
 * Yasuri Paredes
-* (Invitados Especiales)
+* Leidy Herrera
 
 ## 🚀 Cómo ver el proyecto
 Puedes visitar la versión en vivo a través de GitHub Pages aquí:
