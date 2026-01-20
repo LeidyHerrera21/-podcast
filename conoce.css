@@ -1,0 +1,120 @@
+/* NAVBAR */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#0b0b0b;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+  letter-spacing:.35em;
+  font-size:.9rem;
+  font-weight:600;
+}
+
+.nav-menu{
+  display:flex;
+  gap:35px;
+}
+
+.nav-menu a{
+  color:#fff;
+  text-decoration:none;
+  font-size:.8rem;
+  letter-spacing:.2em;
+  position:relative;
+}
+
+.nav-menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:1px;
+  background:#fff;
+  transition:.3s;
+}
+
+.nav-menu a:hover::after{
+  width:100%;
+}
+
+/* HAMBURGUESA */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:25px;
+  height:2px;
+  background:#fff;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .menu-toggle{display:flex;}
+
+  .nav-menu{
+    position:absolute;
+    top:100%;
+    right:0;
+    background:#0b0b0b;
+    flex-direction:column;
+    width:200px;
+    padding:20px;
+    display:none;
+  }
+
+  .nav-menu.active{
+    display:flex;
+  }
+}
+
+/* HOJA BASE */
+.leaf{
+  position:absolute;
+  background-size:contain;
+  background-repeat:no-repeat;
+  opacity:.85;
+  animation-name:fall;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+}
+
+/* TIPO 1 — hoja clásica */
+.leaf.type1{
+  width:22px;
+  height:22px;
+  background-image:url("img/leaf1.png");
+  animation-duration:12s;
+}
+
+/* TIPO 2 — hoja más grande y lenta */
+.leaf.type2{
+  width:32px;
+  height:32px;
+  background-image:url("img/leaf2.png");
+  animation-duration:18s;
+  opacity:.65;
+}
+
+/* ANIMACIÓN */
+@keyframes fall{
+  0%{
+    transform:translateX(-60px) translateY(-60px) rotate(0deg);
+  }
+  100%{
+    transform:translateX(120vw) translateY(110vh) rotate(360deg);
+  }
+}
