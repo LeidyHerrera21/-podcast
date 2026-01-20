@@ -7,17 +7,18 @@ toggle.addEventListener("click", ()=>{
   menu.classList.toggle("active");
 });
 
+/* =========================
+   HOJAS DE OTOÑO
+========================= */
 document.addEventListener("DOMContentLoaded", () => {
   const leavesContainer = document.querySelector(".leaves-container");
   if (!leavesContainer) return;
 
-  function createLeaf(){
+  function createLeaf() {
     const leaf = document.createElement("div");
     leaf.classList.add("leaf");
 
-    const type = Math.random() > 0.5 ? "type1" : "type2";
-    leaf.classList.add(type);
-
+    leaf.classList.add(Math.random() > 0.5 ? "type1" : "type2");
     leaf.style.left = Math.random() * 100 + "vw";
 
     leavesContainer.appendChild(leaf);

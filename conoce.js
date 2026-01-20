@@ -9,20 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const leavesContainer = document.querySelector(".leaves-container");
   if (!leavesContainer) return;
 
-  function createLeaf(){
+  function createLeaf() {
     const leaf = document.createElement("div");
     leaf.classList.add("leaf");
 
-    const type = Math.random() > 0.5 ? "type1" : "type2";
-    leaf.classList.add(type);
+    leaf.classList.add(Math.random() > 0.5 ? "type1" : "type2");
 
+    // Posición segura dentro del viewport
     leaf.style.left = Math.random() * 100 + "vw";
 
     leavesContainer.appendChild(leaf);
 
-    setTimeout(() => leaf.remove(), 20000);
+    setTimeout(() => leaf.remove(), 22000);
   }
 
-  setInterval(createLeaf, 600);
+  setInterval(createLeaf, 700);
 });
-
