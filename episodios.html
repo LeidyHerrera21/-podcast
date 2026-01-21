@@ -119,8 +119,22 @@
       <source src="video/opop.mp4" type="video/mp4">
     </video>
     <div class="card-content">
-      <h3>EPISODIO 01</h3>
+       <div class="episode-header">
+    <h3>EPISODIO 01</h3>
+
+    <button class="like-btn" data-id="ep1" aria-label="Me gusta episodio 1">
+      <span class="heart">❤</span>
+      <span class="count">0</span>
+    </button>
+  </div>
+
       <p>Descripción breve del episodio.</p>
+      <a 
+        href="https://www.youtube.com/watch?v=VIDEO_ID_2" 
+        target="_blank" 
+        class="yt-btn">
+        VER EN YOUTUBE ▶
+      </a>
     </div>
   </div>
 
@@ -129,8 +143,22 @@
       <source src="videos/episodio2.mp4" type="video/mp4">
     </video>
     <div class="card-content">
-      <h3>EPISODIO 02</h3>
-      <p>Descripción breve del episodio.</p>
+      <div class="episode-header">
+    <h3>EPISODIO 02</h3>
+
+    <button class="like-btn" data-id="ep2" aria-label="Me gusta episodio 2">
+      <span class="heart">❤</span>
+      <span class="count">0</span>
+    </button>
+  
+  </div>
+  <p>Descripción breve del episodio.</p>
+      <a 
+        href="https://www.youtube.com/watch?v=VIDEO_ID_2" 
+        target="_blank" 
+        class="yt-btn">
+        VER EN YOUTUBE ▶
+      </a>
     </div>
   </div>
 
@@ -139,8 +167,22 @@
       <source src="videos/episodio3.mp4" type="video/mp4">
     </video>
     <div class="card-content">
-      <h3>EPISODIO 03</h3>
+       <div class="episode-header">
+    <h3>EPISODIO 03</h3>
+
+    <button class="like-btn" data-id="ep3" aria-label="Me gusta episodio 3">
+      <span class="heart">❤</span>
+      <span class="count">0</span>
+    </button>
+  </div>
+
       <p>Descripción breve del episodio.</p>
+      <a 
+        href="https://www.youtube.com/watch?v=VIDEO_ID_2" 
+        target="_blank" 
+        class="yt-btn">
+        VER EN YOUTUBE ▶
+      </a>
     </div>
   </div>
 
@@ -149,8 +191,22 @@
       <source src="videos/episodio4.mp4" type="video/mp4">
     </video>
     <div class="card-content">
-      <h3>EPISODIO 04</h3>
+   <div class="episode-header">
+    <h3>EPISODIO 04</h3>
+
+    <button class="like-btn" data-id="ep4" aria-label="Me gusta episodio 4">
+      <span class="heart">❤</span>
+      <span class="count">0</span>
+    </button>
+  </div>
+
       <p>Descripción breve del episodio.</p>
+      <a 
+        href="https://www.youtube.com/watch?v=VIDEO_ID_2" 
+        target="_blank" 
+        class="yt-btn">
+        VER EN YOUTUBE ▶
+      </a>
     </div>
   </div>
 
@@ -159,8 +215,22 @@
       <source src="videos/episodio5.mp4" type="video/mp4">
     </video>
     <div class="card-content">
-      <h3>EPISODIO 05</h3>
+       <div class="episode-header">
+    <h3>EPISODIO 05</h3>
+
+    <button class="like-btn" data-id="ep5" aria-label="Me gusta episodio 5">
+      <span class="heart">❤</span>
+      <span class="count">0</span>
+    </button>
+  </div>
+
       <p>Descripción breve del episodio.</p>
+      <a 
+        href="https://www.youtube.com/watch?v=VIDEO_ID_2" 
+        target="_blank" 
+        class="yt-btn">
+        VER EN YOUTUBE ▶
+      </a>
     </div>
   </div>
 
@@ -169,14 +239,61 @@
       <source src="videos/episodio6.mp4" type="video/mp4">
     </video>
     <div class="card-content">
-      <h3>EPISODIO 06</h3>
+       <div class="episode-header">
+    <h3>EPISODIO 06</h3>
+
+    <button class="like-btn" data-id="ep6" aria-label="Me gusta episodio 6">
+      <span class="heart">❤</span>
+      <span class="count">0</span>
+    </button>
+  </div>
+
       <p>Descripción breve del episodio.</p>
+      <a 
+        href="https://www.youtube.com/watch?v=VIDEO_ID_2" 
+        target="_blank" 
+        class="yt-btn">
+        VER EN YOUTUBE ▶
+      </a>
     </div>
   </div>
 
 </section>
 
-<script src="episodios.js"></script>
-</body>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import {
+    getFirestore,
+    doc,
+    getDoc,
+    updateDoc,
+    setDoc,
+    onSnapshot,
+    increment
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    </html>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCUTxRAtR3J0lawtrWQmilnh9B7zlmCzKI",
+    authDomain: "proceso-c1ff4.firebaseapp.com",
+    projectId: "proceso-c1ff4",
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  window.firebaseDB = db;
+  window.firebaseTools = {
+    doc,
+    getDoc,
+    updateDoc,
+    setDoc,
+    onSnapshot,
+    increment
+  };
+
+</script>
+
+<script src="episodios.js" defer></script>
+
+</body>
+</html>
