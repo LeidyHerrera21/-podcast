@@ -17,8 +17,8 @@ Este sitio web es una plataforma interactiva y totalmente **responsive**, diseñ
 
 ## 👥 El Equipo
 Somos 6 voces que dan vida a este proyecto:
-* Joaquin
-* Eduard
+* Joaquin Castro
+* Eduard Robles
 * Aaron Ocaña
 * Treicy Portilla
 * Yasuri Paredes

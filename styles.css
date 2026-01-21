@@ -651,6 +651,18 @@ section {
   }
 }
 
+/* CONTENEDOR */
+.leaves-container{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1;
+}
+
 /* HOJA BASE */
 .leaf{
   position:absolute;
@@ -659,10 +671,10 @@ section {
   opacity:.85;
   animation-name:fall;
   animation-timing-function:linear;
-  animation-iteration-count:infinite;
+  animation-fill-mode:forwards; /* mantiene estado final */
 }
 
-/* TIPO 1 — hoja clásica */
+/* TIPO 1 */
 .leaf.type1{
   width:22px;
   height:22px;
@@ -670,7 +682,7 @@ section {
   animation-duration:12s;
 }
 
-/* TIPO 2 — hoja más grande y lenta */
+/* TIPO 2 */
 .leaf.type2{
   width:32px;
   height:32px;
@@ -681,10 +693,10 @@ section {
 
 /* ANIMACIÓN */
 @keyframes fall{
-  0%{
-    transform:translateX(-60px) translateY(-60px) rotate(0deg);
+  from{
+    transform:translate(-10vw, -10vh) rotate(0deg);
   }
-  100%{
-    transform:translateX(120vw) translateY(110vh) rotate(360deg);
+  to{
+    transform:translate(120vw, 120vh) rotate(360deg);
   }
 }
